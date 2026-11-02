@@ -1,0 +1,240 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Favorite Animals</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap 3 -->
+    <link rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <style>
+        body {
+            background-color: #f0f8ff;
+            font-family: Arial;
+        }
+
+        .header {
+            background-color: #337ab7;
+            color: white;
+            padding: 25px;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .animal-item {
+            margin-bottom: 20px;
+        }
+
+        .animal-card {
+            background-color: white;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            border: 2px solid #ddd;
+            min-height: 210px;
+            transition: 0.3s;
+        }
+
+        .animal-card h3 {
+            color: #337ab7;
+        }
+
+        .animal-icon {
+            font-size: 45px;
+        }
+
+        .buttons {
+            margin: 25px 0;
+            text-align: center;
+        }
+
+        .buttons button {
+            margin: 5px;
+        }
+
+        .active {
+            background-color: #fff3cd;
+            border: 3px solid orange;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="header">
+    <h1>My Favorite Animals</h1>
+    <p>Let's Learn About Animals!</p>
+</div>
+
+<div class="container">
+
+    <div class="buttons">
+
+        <button class="btn btn-primary" id="parentBtn">
+            Parent
+        </button>
+
+        <button class="btn btn-info" id="parentsBtn">
+            Parents
+        </button>
+
+        <button class="btn btn-success" id="childrenBtn">
+            Children
+        </button>
+
+        <button class="btn btn-warning" id="findBtn">
+            Find
+        </button>
+
+        <button class="btn btn-danger" id="siblingsBtn">
+            Siblings
+        </button>
+
+        <button class="btn btn-primary" id="nextBtn">
+            Next
+        </button>
+
+        <button class="btn btn-info" id="prevBtn">
+            Previous
+        </button>
+
+        <button class="btn btn-default" id="resetBtn">
+            Reset
+        </button>
+
+    </div>
+
+    <div class="row" id="animals">
+
+        <div class="col-sm-4 animal-item">
+            <div class="animal-card active">
+
+                <div class="animal-icon">🦁</div>
+
+                <h3 class="animal-name">Lion</h3>
+
+                <p>The lion is the king of animals.</p>
+
+            </div>
+        </div>
+
+        <div class="col-sm-4 animal-item">
+            <div class="animal-card">
+
+                <div class="animal-icon">🐘</div>
+
+                <h3 class="animal-name">Elephant</h3>
+
+                <p>The elephant is a big animal.</p>
+
+            </div>
+        </div>
+
+        <div class="col-sm-4 animal-item">
+            <div class="animal-card">
+
+                <div class="animal-icon">🐼</div>
+
+                <h3 class="animal-name">Panda</h3>
+
+                <p>The panda loves eating bamboo.</p>
+
+            </div>
+        </div>
+
+    </div>
+
+    <div class="alert alert-info text-center">
+        Click a button to explore jQuery Traversing!
+    </div>
+
+</div>
+
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+<!-- Bootstrap 3 JS -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<script>
+
+// 1. parent()
+$("#parentBtn").click(function() {
+
+    $(".animal-name").parent()
+    .css("background-color", "#fff3cd");
+
+});
+
+// 2. parents()
+$("#parentsBtn").click(function() {
+
+    $(".animal-name").parents(".container")
+    .css("border", "3px solid orange");
+
+});
+
+// 3. children()
+$("#childrenBtn").click(function() {
+
+    $("#animals").children()
+    .css("border", "3px solid blue");
+
+});
+
+// 4. find()
+$("#findBtn").click(function() {
+
+    $("#animals").find("h3")
+    .css("color", "green");
+
+});
+
+// 5. siblings()
+$("#siblingsBtn").click(function() {
+
+    $(".animal-item.active").siblings()
+    .find(".animal-card")
+    .css("opacity", "0.4");
+
+});
+
+// 6. next()
+$("#nextBtn").click(function() {
+
+    $(".animal-item.active")
+    .next()
+    .addClass("active");
+
+    $(".animal-item.active").first()
+    .removeClass("active");
+
+});
+
+// 7. prev()
+$("#prevBtn").click(function() {
+
+    $(".animal-item.active")
+    .prev()
+    .addClass("active");
+
+    $(".animal-item.active").last()
+    .removeClass("active");
+
+});
+
+// Reset
+$("#resetBtn").click(function() {
+
+    location.reload();
+
+});
+
+</script>
+
+</body>
+</html>
